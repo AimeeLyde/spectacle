@@ -10,9 +10,9 @@
 namespace AimCecSpect
 {
     using System;
-    using System.ComponentModel.DataAnnotations;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Billet
     {
         [Key]
@@ -23,11 +23,8 @@ namespace AimCecSpect
     
         public virtual Spectacle Spectacle { get; set; }
         public virtual Utilisateur Utilisateur { get; set; }
-
-
-        public delegate void ReservationDelegate(int ID_Spectacle, int ID_User);
-        public delegate void AnnulationDelegate(int ID_Spectacle, int ID_User);
-
-
     }
+
+    public delegate void ReservationDelegate(int ID_Spectacle, int ID_User);
+    public delegate void AnnulationDelegate(int ID_Spectacle, int ID_User);
 }

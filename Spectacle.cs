@@ -11,7 +11,7 @@ namespace AimCecSpect
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
+    
     public partial class Spectacle
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,7 @@ namespace AimCecSpect
         {
             this.Billets = new HashSet<Billet>();
         }
-        [Key]
+    
         public int idSpectacle { get; set; }
         public string titre { get; set; }
         public Nullable<System.DateTime> date { get; set; }

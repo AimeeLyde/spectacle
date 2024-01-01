@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static AimCecSpect.Utilisateur;
 
 namespace AimCecSpect
 {
@@ -33,7 +34,10 @@ namespace AimCecSpect
             if (rec != null)
             {
                 MessageBox.Show("Login Success");
-                
+                UtilisateurConnecteManager.ConnecterUtilisateur(rec.idUser);
+                Hide();
+                Form1 tableauSpectaclesForm = new Form1();
+                tableauSpectaclesForm.Show();
             }
             else
             {

@@ -11,8 +11,7 @@ namespace AimCecSpect
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Utilisateur
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +19,7 @@ namespace AimCecSpect
         {
             this.Billets = new HashSet<Billet>();
         }
-        [Key]
+    
         public int idUser { get; set; }
         public string nom { get; set; }
         public string historiqueReservations { get; set; }
@@ -28,5 +27,21 @@ namespace AimCecSpect
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Billet> Billets { get; set; }
+
+
+        public static class UtilisateurConnecteManager
+        {
+            public static int IDUtilisateurConnecte { get; private set; }
+
+            public static void ConnecterUtilisateur(int idUtilisateur)
+            {
+                IDUtilisateurConnecte = idUtilisateur;
+            }
+
+            public static void DeconnecterUtilisateur()
+            {
+                IDUtilisateurConnecte = 0; // Réinitialisez l'ID de l'utilisateur lors de la déconnexion
+            }
+        }
     }
 }

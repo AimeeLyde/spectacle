@@ -231,6 +231,10 @@
     <Compile Include="Migrations\202312311847385_NewMigration.designer.cs">
       <DependentUpon>202312311847385_NewMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202401011721258_NewMigration2.cs" />
+    <Compile Include="Migrations\202401011721258_NewMigration2.designer.cs">
+      <DependentUpon>202401011721258_NewMigration2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -266,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202312311847385_NewMigration.resx">
       <DependentUpon>202312311847385_NewMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401011721258_NewMigration2.resx">
+      <DependentUpon>202401011721258_NewMigration2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
