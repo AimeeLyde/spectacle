@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BilleterieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Billeterie.dbo.Billet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="Billet">
+          <Key>
+            <PropertyRef Name="idBillet" />
+          </Key>
+          <Property Name="idBillet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSpectacle" Type="int" />
+          <Property Name="idUtilisateur" Type="int" />
+          <Property Name="statutReservation" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Spectacle">
+          <Key>
+            <PropertyRef Name="idSpectacle" />
+          </Key>
+          <Property Name="idSpectacle" Type="int" Nullable="false" />
+          <Property Name="titre" Type="nvarchar(max)" />
+          <Property Name="date" Type="date" />
+          <Property Name="lieu" Type="nvarchar(max)" />
+          <Property Name="nbPlacesDispo" Type="int" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="nom" Type="nvarchar(max)" />
+          <Property Name="historiqueReservations" Type="nvarchar(max)" />
+          <Property Name="motDePasse" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Billet_IdSpectacle">
+          <End Role="Spectacle" Type="Self.Spectacle" Multiplicity="0..1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spectacle">
+              <PropertyRef Name="idSpectacle" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idSpectacle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Billet_IdUtilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUser" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BilleterieModelStoreContainer">
+          <EntitySet Name="Spectacle" EntityType="Self.Spectacle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Billet" EntityType="Self.Billet" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Billet].[idBillet] AS [idBillet], 
+    [Billet].[idSpectacle] AS [idSpectacle], 
+    [Billet].[idUtilisateur] AS [idUtilisateur], 
+    [Billet].[statutReservation] AS [statutReservation]
+    FROM [dbo].[Billet] AS [Billet]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Billet_IdSpectacle" Association="Self.FK_Billet_IdSpectacle">
+            <End Role="Spectacle" EntitySet="Spectacle" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Billet_IdUtilisateur" Association="Self.FK_Billet_IdUtilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Billet" EntitySet="Billet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BilleterieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Spectacle">
+          <Key>
+            <PropertyRef Name="idSpectacle" />
+          </Key>
+          <Property Name="idSpectacle" Type="Int32" Nullable="false" />
+          <Property Name="titre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="lieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="nbPlacesDispo" Type="Int32" />
+          <NavigationProperty Name="Billets" Relationship="Self.FK_Billet_IdSpectacle" FromRole="Spectacle" ToRole="Billet" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="Int32" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="historiqueReservations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="motDePasse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Billets" Relationship="Self.FK_Billet_IdUtilisateur" FromRole="Utilisateur" ToRole="Billet" />
+        </EntityType>
+        <EntityType Name="Billet">
+          <Key>
+            <PropertyRef Name="idBillet" />
+          </Key>
+          <Property Name="idBillet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idSpectacle" Type="Int32" />
+          <Property Name="idUtilisateur" Type="Int32" />
+          <Property Name="statutReservation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Spectacle" Relationship="Self.FK_Billet_IdSpectacle" FromRole="Billet" ToRole="Spectacle" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Billet_IdUtilisateur" FromRole="Billet" ToRole="Utilisateur" />
+        </EntityType>
+        <Association Name="FK_Billet_IdSpectacle">
+          <End Role="Spectacle" Type="Self.Spectacle" Multiplicity="0..1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spectacle">
+              <PropertyRef Name="idSpectacle" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idSpectacle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Billet_IdUtilisateur">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUser" />
+            </Principal>
+            <Dependent Role="Billet">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BilleterieEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Spectacles" EntityType="Self.Spectacle" />
+          <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
+          <EntitySet Name="Billets" EntityType="Self.Billet" />
+          <AssociationSet Name="FK_Billet_IdSpectacle" Association="Self.FK_Billet_IdSpectacle">
+            <End Role="Spectacle" EntitySet="Spectacles" />
+            <End Role="Billet" EntitySet="Billets" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Billet_IdUtilisateur" Association="Self.FK_Billet_IdUtilisateur">
+            <End Role="Utilisateur" EntitySet="Utilisateurs" />
+            <End Role="Billet" EntitySet="Billets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BilleterieModelStoreContainer" CdmEntityContainer="BilleterieEntities">
+          <EntitySetMapping Name="Spectacles">
+            <EntityTypeMapping TypeName="BilleterieModel.Spectacle">
+              <MappingFragment StoreEntitySet="Spectacle">
+                <ScalarProperty Name="idSpectacle" ColumnName="idSpectacle" />
+                <ScalarProperty Name="titre" ColumnName="titre" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="lieu" ColumnName="lieu" />
+                <ScalarProperty Name="nbPlacesDispo" ColumnName="nbPlacesDispo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateurs">
+            <EntityTypeMapping TypeName="BilleterieModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="historiqueReservations" ColumnName="historiqueReservations" />
+                <ScalarProperty Name="motDePasse" ColumnName="motDePasse" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Billets">
+            <EntityTypeMapping TypeName="BilleterieModel.Billet">
+              <MappingFragment StoreEntitySet="Billet">
+                <ScalarProperty Name="idBillet" ColumnName="idBillet" />
+                <ScalarProperty Name="idSpectacle" ColumnName="idSpectacle" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="statutReservation" ColumnName="statutReservation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

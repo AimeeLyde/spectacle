@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BilleterieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Spectacle">
+    <Key>
+      <PropertyRef Name="idSpectacle" />
+    </Key>
+    <Property Name="idSpectacle" Type="Int32" Nullable="false" />
+    <Property Name="titre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <Property Name="lieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="nbPlacesDispo" Type="Int32" />
+    <NavigationProperty Name="Billets" Relationship="Self.FK_Billet_IdSpectacle" FromRole="Spectacle" ToRole="Billet" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="Int32" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="historiqueReservations" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="motDePasse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Billets" Relationship="Self.FK_Billet_IdUtilisateur" FromRole="Utilisateur" ToRole="Billet" />
+  </EntityType>
+  <EntityType Name="Billet">
+    <Key>
+      <PropertyRef Name="idBillet" />
+    </Key>
+    <Property Name="idBillet" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idSpectacle" Type="Int32" />
+    <Property Name="idUtilisateur" Type="Int32" />
+    <Property Name="statutReservation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Spectacle" Relationship="Self.FK_Billet_IdSpectacle" FromRole="Billet" ToRole="Spectacle" />
+    <NavigationProperty Name="Utilisateur" Relationship="Self.FK_Billet_IdUtilisateur" FromRole="Billet" ToRole="Utilisateur" />
+  </EntityType>
+  <Association Name="FK_Billet_IdSpectacle">
+    <End Role="Spectacle" Type="Self.Spectacle" Multiplicity="0..1" />
+    <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spectacle">
+        <PropertyRef Name="idSpectacle" />
+      </Principal>
+      <Dependent Role="Billet">
+        <PropertyRef Name="idSpectacle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Billet_IdUtilisateur">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+    <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Billet">
+        <PropertyRef Name="idUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BilleterieEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Spectacles" EntityType="Self.Spectacle" />
+    <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
+    <EntitySet Name="Billets" EntityType="Self.Billet" />
+    <AssociationSet Name="FK_Billet_IdSpectacle" Association="Self.FK_Billet_IdSpectacle">
+      <End Role="Spectacle" EntitySet="Spectacles" />
+      <End Role="Billet" EntitySet="Billets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Billet_IdUtilisateur" Association="Self.FK_Billet_IdUtilisateur">
+      <End Role="Utilisateur" EntitySet="Utilisateurs" />
+      <End Role="Billet" EntitySet="Billets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BilleterieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Erreurs détectées durant la génération :
+avertissement 6002: La table/vue 'Billeterie.dbo.Billet' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+  <EntityType Name="Billet">
+    <Key>
+      <PropertyRef Name="idBillet" />
+    </Key>
+    <Property Name="idBillet" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idSpectacle" Type="int" />
+    <Property Name="idUtilisateur" Type="int" />
+    <Property Name="statutReservation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Spectacle">
+    <Key>
+      <PropertyRef Name="idSpectacle" />
+    </Key>
+    <Property Name="idSpectacle" Type="int" Nullable="false" />
+    <Property Name="titre" Type="nvarchar(max)" />
+    <Property Name="date" Type="date" />
+    <Property Name="lieu" Type="nvarchar(max)" />
+    <Property Name="nbPlacesDispo" Type="int" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="idUser" />
+    </Key>
+    <Property Name="idUser" Type="int" Nullable="false" />
+    <Property Name="nom" Type="nvarchar(max)" />
+    <Property Name="historiqueReservations" Type="nvarchar(max)" />
+    <Property Name="motDePasse" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_Billet_IdSpectacle">
+    <End Role="Spectacle" Type="Self.Spectacle" Multiplicity="0..1" />
+    <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Spectacle">
+        <PropertyRef Name="idSpectacle" />
+      </Principal>
+      <Dependent Role="Billet">
+        <PropertyRef Name="idSpectacle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Billet_IdUtilisateur">
+    <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+    <End Role="Billet" Type="Self.Billet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Utilisateur">
+        <PropertyRef Name="idUser" />
+      </Principal>
+      <Dependent Role="Billet">
+        <PropertyRef Name="idUtilisateur" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BilleterieModelStoreContainer">
+    <EntitySet Name="Spectacle" EntityType="Self.Spectacle" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Billet" EntityType="Self.Billet" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Billet].[idBillet] AS [idBillet], 
+    [Billet].[idSpectacle] AS [idSpectacle], 
+    [Billet].[idUtilisateur] AS [idUtilisateur], 
+    [Billet].[statutReservation] AS [statutReservation]
+    FROM [dbo].[Billet] AS [Billet]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Billet_IdSpectacle" Association="Self.FK_Billet_IdSpectacle">
+      <End Role="Spectacle" EntitySet="Spectacle" />
+      <End Role="Billet" EntitySet="Billet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Billet_IdUtilisateur" Association="Self.FK_Billet_IdUtilisateur">
+      <End Role="Utilisateur" EntitySet="Utilisateur" />
+      <End Role="Billet" EntitySet="Billet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

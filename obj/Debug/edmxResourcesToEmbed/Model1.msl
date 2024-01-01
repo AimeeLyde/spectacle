@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BilleterieModelStoreContainer" CdmEntityContainer="BilleterieEntities">
+    <EntitySetMapping Name="Spectacles">
+      <EntityTypeMapping TypeName="BilleterieModel.Spectacle">
+        <MappingFragment StoreEntitySet="Spectacle">
+          <ScalarProperty Name="idSpectacle" ColumnName="idSpectacle" />
+          <ScalarProperty Name="titre" ColumnName="titre" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="lieu" ColumnName="lieu" />
+          <ScalarProperty Name="nbPlacesDispo" ColumnName="nbPlacesDispo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateurs">
+      <EntityTypeMapping TypeName="BilleterieModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="historiqueReservations" ColumnName="historiqueReservations" />
+          <ScalarProperty Name="motDePasse" ColumnName="motDePasse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Billets">
+      <EntityTypeMapping TypeName="BilleterieModel.Billet">
+        <MappingFragment StoreEntitySet="Billet">
+          <ScalarProperty Name="idBillet" ColumnName="idBillet" />
+          <ScalarProperty Name="idSpectacle" ColumnName="idSpectacle" />
+          <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+          <ScalarProperty Name="statutReservation" ColumnName="statutReservation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
