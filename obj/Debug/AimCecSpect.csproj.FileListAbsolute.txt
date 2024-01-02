@@ -90,3 +90,4 @@ C:\Users\SOFIYANE\source\repos\AimCecSpect\AimCecSpect\obj\Debug\AimCecSpect.Mig
 C:\Users\SOFIYANE\source\repos\AimCecSpect\AimCecSpect\obj\Debug\AimCecSpect.Migrations.NewMigration.resources
 C:\Users\SOFIYANE\source\repos\AimCecSpect\AimCecSpect\obj\Debug\AimCecSpect.Form1.resources
 C:\Users\SOFIYANE\source\repos\AimCecSpect\AimCecSpect\obj\Debug\AimCecSpect.Migrations.NewMigration2.resources
+C:\Users\SOFIYANE\source\repos\AimCecSpect\AimCecSpect\obj\Debug\AimCecSpect.Reservation.resources

@@ -43,7 +43,30 @@ namespace AimCecSpect
                 /*MessageBox.Show($"ID du spectacle : {idSpectacle}");*/
 
             }
+
+            if (e.ColumnIndex == dataGridView1.Columns["Annulation"].Index && e.RowIndex >= 0)
+            {
+
+                int idSpectacle = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["idSpectacleDataGridViewTextBoxColumn"].Value);
+                int idUtilisateur = UtilisateurConnecteManager.IDUtilisateurConnecte;
+                /*MessageBox.Show($"ID du spectacle : {idSpectacle}");*/
+
+                GestionnaireBillet gestionnairebillet = new GestionnaireBillet(db);
+                gestionnairebillet.ReserverBillet(idSpectacle, idUtilisateur);
+                /*MessageBox.Show($"ID du spectacle : {idSpectacle}");*/
+
+            }
         }
 
+        private void mesRéservationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Reservation tabForm = new Reservation();
+            tabForm.Show();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

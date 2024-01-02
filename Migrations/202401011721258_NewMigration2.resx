@@ -117,40 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="Reservation.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Annulation.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="spectacleBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>457, 17</value>
-  </metadata>
-  <metadata name="spectacleBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>457, 17</value>
-  </metadata>
-  <metadata name="billeterieDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>189, 17</value>
-  </metadata>
-  <metadata name="billeterieDataSetBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>189, 17</value>
-  </metadata>
-  <metadata name="billeterieDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="billeterieDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="spectacleTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>675, 17</value>
-  </metadata>
-  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>886, 17</value>
-  </metadata>
-  <metadata name="Reservation.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Annulation.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>H4sIAAAAAAAEANVaS2/jNhC+F+h/EHRqi6zlZC9tYO8idZLC6OaBOLvoLWAk2iFKUapIBQ6K/rIe+pP6FzrUyxRJvby2k8IXm+R8HM6Lwxn/+/c/k4/rkDrPOOEkYlP3eDR2Hcz8KCBsNXVTsXz3o/vxw7ffTC6CcO18Kde9l+uAkvGp+yREfOp53H/CIeKjkPhJxKOlGPlR6KEg8k7G45+842MPA4QLWI4zuUuZICHOfsDPWcR8HIsU0asowJQX4zCzyFCdaxRiHiMfT90zEs6wv4ixL1znjBIELCwwXboOYiwSSACDp585XogkYqtFDAOI3r/EGNYtEeW4YPx0s7zvGcYn8gzehrCE8lMuonAg4PH7QiieTr6VaN1KaCC2CxCveJGnzkQ3dT8LQglHAqeJ6+j7nc5oItfWhDtSSI4cZeKoMgOwFvk5cmYpFWmCpwynIkH0yLlNHynxf8Uv99HvmE1ZSqnKH3AIc7UBGLpNohgn4uUOLwuuSQCKBIa9Oq2nE1ekGl1+qDkT709c5xqYQI8UV2agCGAhogT/ghlO4LzBLRICJ6DFeYAzQRocaPuxKCw3A7MD13GdK7T+hNlKPE1d+Oo6l2SNg3KkYOAzI+BpQCSSFHftEUbiHN8iLgl3vdU1eiarTBLapj8TSrHgrnOHaTbPn0ic+9son3uoWdZlEoV3Ea0o1dmHe5SsMDjtfdS4ZBGlia/xN/E21txq4zleX/POV7+eZZfcDrftkvJQ1k2CTDrIp1jbtIuuZhsDKDkwnoo7DE78XETEg5m8claL0VezD5VrbGzemDRM3lxhs/g29moi3YVXlgy0eGV5iq28UpFnP8esCF7PNxWeh7tnk7Ps0UNhTbKHa0HbJQDeyk3O4fs9ZHBdNJTgdO+MscdbCrkhPyc8jtoDzVY33UCn1z2qOSz0cagzziOfZCzpHlWxUz/jBQucTt5yjdROB5oBjyIx+BDwMXXHo9GxIcA28CrabcDLu6qO/IMBC96HE2nsiMJjgIM/EyZMVyXMJzGiXcfTCId6uVRGtZc+c45jzKRfdolhB0xUe2lBqEtaE0+xmnZjstwXTQpvuzyGa7wV12JJtRuty1AbBZD7GAhNgMhwUgjhLBVPcgyvbekjvCWKi4oX8Ug/icRcYGG7ojdObTuHIZM6UhVuDJSG7FEHqKzLhtF8yynCs2BtoqCyrjFU6kbdJzpVx6ifwHCQPsFIwar41i/1+nl7yMKWZZnC6PKtvt7VfYS+/qQgtdlhs0DKW6ryoE2pxstrNWVNx2so6kyuUBxDHqAUeYoRZ5FXeGbvFsMrIGGO4fncUgipuK12gnwLrbA2C1sDp5ck4QLyG/SIZCYyC0JjmRovGhyw3MkMCabiSr8saeT3IjDZ6zGWu6WgvYRjhfJyyjLKBnUb1FmhDVGUNNRRZhFNQ9ZWk2lDyaojKkQ20J9erXyoMOq4iTbxNJEYt6sheM0JdF320nRz2Oun5SKwD1dwE2Gzbss7pK5d+83SjqTcJHWwluymDa8WmzTjaw5bbZiWioKKa5l+Mxal3IDbGtVGDcPtqoX2UAZRPG9VpGKoP0b+eFUh8pH+CPlTVkXIRwYEwvo7tRYS61OHN776jW+LaQ9GNa8petVX9gtUMn+xPslteYwpnd7Xl4rWdJVJWVXMbMVn4zt0J6G4lT/ISwKSPfDmXJacqpLKMCnoOaBpNEYqqC+pTLZKCbXUb1KkYd1NPyMvy5e4DkjhmQQyJ1u8cIHDkVwwWvxBZ+CcTGwWXCFGlpiLvDTonoyPT7T24dtp5XmcB7R/P+/VGmtECrizdGnUPXv30tgzSvwnlHwXovX3KtB2/bIBcEN7Tq/aAdqLGix17GwfozoyZwFeT90/M7pTZ/7bg0J65Nwk4Hynztj5a6gCre2jjIdhOI3NpK8yL1sEHSYmE6G/tLbovryBRsheDLXW+/gqlar9DfldZP2NYRhqv+OrmLH2NDqtf69NhJ10Deqh64A9goM2BRpf8f/zFoAlIg8vzr+qPbRX0fpmSvsyhn6vk53bhL0rYhZDd9b3yNN3CLOPMrbl0UxZYJbo7Z2RlsaIbYem+n9j16S9aWLborldceimir2L0qNxYOk3vM2OicXeujobOz/ugH6I+dgFj1X+Bwtxg5PVBkK+5BmoTfXVas2cLaMyfGgclUu0hOIKCwRZDTpLBFkiX8A0pBc8+0fGF0RTWHIRPuJgzm5SEacCjozDR1r774kMPW37Z02fOs+Tmzj7N8UujgBsEpmY3bCfU0KDiu9LM09sgpAxrUg+pS6FTEJXLxXSdcR6AhXiq0LxPQ5jCmD8hi3QM96GNwj3n/AK+S9lzaIZpFsRdbFPzglaJSjkBcaGHn6CDQfh+sN/9rTUzA4uAAA=</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>
